@@ -1,0 +1,1013 @@
+harmonika:~/Sites/projects/wan/app/models swain$ harmonika:~/Sites/projects/wan/app/models swain$ 
+harmonika:~/Sites/projects/wan/app/models swain$ 
+harmonika:~/Sites/projects/wan/app/models swain$ 
+harmonika:~/Sites/projects/wan/app/models swain$ cd
+harmonika:~ swain$ irb
+irb(main):001:0> require "appscript"
+=> true
+irb(main):002:0> include AppScript
+NameError: uninitialized constant AppScript
+	from (irb):2
+irb(main):003:0> include Appscript
+=> Object
+irb(main):004:0> it = app('iTunes')
+=> app("/Applications/iTunes.app")
+irb(main):005:0> src = it.sources
+=> app("/Applications/iTunes.app").sources
+irb(main):006:0> puts src[0].name
+app("/Applications/iTunes.app").sources[0].name
+=> nil
+irb(main):007:0> puts src[1].name
+app("/Applications/iTunes.app").sources[1].name
+=> nil
+irb(main):008:0> puts src.properties
+EQ
+EQ_enabled
+address
+album
+album_artist
+artist
+band_1
+band_10
+band_2
+band_3
+band_4
+band_5
+band_6
+band_7
+band_8
+band_9
+bit_rate
+bookmark
+bookmarkable
+bounds
+bpm
+capacity
+category
+class_
+closeable
+collapseable
+collapsed
+collating
+comment
+compilation
+composer
+container
+copies
+current_EQ_preset
+current_encoder
+current_playlist
+current_stream_URL
+current_stream_title
+current_track
+current_visual
+data
+database_ID
+date_added
+description
+disc_count
+disc_number
+downloaded
+duration
+enabled
+ending_page
+episode_ID
+episode_number
+error_handling
+fax_number
+finish
+fixed_indexing
+format
+free_space
+frontmost
+full_screen
+gapless
+genre
+grouping
+id_
+index
+kind
+location
+long_description
+lyrics
+minimized
+modifiable
+modification_date
+mute
+name
+pages_across
+pages_down
+parent
+persistent_ID
+played_count
+played_date
+player_position
+player_state
+podcast
+position
+preamp
+printer_features
+rating
+requested_print_time
+resizable
+sample_rate
+season_number
+selection
+shared
+show
+shufflable
+shuffle
+size
+skipped_count
+skipped_date
+smart
+song_repeat
+sort_album
+sort_album_artist
+sort_artist
+sort_composer
+sort_name
+sort_show
+sound_volume
+special_kind
+start_
+starting_page
+target_printer
+time
+track_count
+track_number
+unplayed
+update_tracks
+version
+video_kind
+view
+visible
+visual_size
+visuals_enabled
+volume_adjustment
+year
+zoomable
+zoomed
+=> nil
+irb(main):009:0> puts src.count
+Appscript::CommandError: CommandError
+		OSERROR: -10001
+		MESSAGE: Type error.
+		COMMAND: app("/Applications/iTunes.app").sources.count()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):9
+irb(main):010:0> puts src.length
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):10
+irb(main):011:0> puts src.commands
+activate
+add
+back_track
+close
+convert
+count
+delete
+download
+duplicate
+eject
+exists
+fast_forward
+get
+launch
+make
+move
+next_track
+open
+open_location
+pause
+play
+playpause
+previous_track
+print
+quit
+refresh
+reopen
+resume
+rewind
+run
+search
+set
+stop
+subscribe
+update
+updateAllPodcasts
+updatePodcast
+=> nil
+irb(main):012:0> src.eject
+Appscript::CommandError: CommandError
+		OSERROR: -1708
+		MESSAGE: Application could not handle this command.
+		COMMAND: app("/Applications/iTunes.app").sources.eject()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):12
+irb(main):013:0> src.parameters('exists')
+=> []
+irb(main):014:0> src.parameters('run')
+=> []
+irb(main):015:0> src.parameters('convert')
+=> []
+irb(main):016:0> src.parameters('subscribe')
+=> []
+irb(main):017:0> src.parameters('foo')
+ArgumentError: Command not found: foo
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:475:in `parameters'
+	from (irb):17
+irb(main):018:0> src.keywords
+=> ["April", "Audiobooks", "August", "December", "EPS_picture", "EQ", "EQ_enabled", "EQ_preset", "EQ_window", "February", "Friday", "GIF_picture", "JPEG_picture", "January", "July", "June", "MP3_CD", "March", "May", "Monday", "Movies", "Music", "November", "October", "PICT_picture", "Party_Shuffle", "Podcasts", "Purchased_Music", "RGB16_color", "RGB96_color", "RGB_color", "Saturday", "September", "Sunday", "TIFF_picture", "TV_Shows", "TV_show", "Thursday", "Tuesday", "URL_track", "Videos", "Wednesday", "address", "album", "album_artist", "album_listing", "albums", "alias", "all", "anything", "application", "application_bundle_id", "application_responses", "application_signature", "application_url", "artist", "artists", "artwork", "ask", "audio_CD", "audio_CD_playlist", "audio_CD_track", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "best", "bit_rate", "bookmark", "bookmarkable", "boolean", "bounding_rectangle", "bounds", "bpm", "browser_window", "c_string", "capacity", "case", "category", "cd_insert", "centimeters", "class_", "class_info", "closeable", "collapseable", "collapsed", "collating", "color_table", "comment", "compilation", "composer", "composers", "container", "copies", "cubic_centimeters", "cubic_feet", "cubic_inches", "cubic_meters", "cubic_yards", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "dash_style", "data", "database_ID", "date", "date_added", "decimal_struct", "degrees_Celsius", "degrees_Fahrenheit", "degrees_Kelvin", "description", "detailed", "device", "device_playlist", "device_track", "diacriticals", "disc_count", "disc_number", "displayed", "double_integer", "downloaded", "duration", "element_info", "enabled", "encoded_string", "encoder", "ending_page", "enumerator", "episode_ID", "episode_number", "error_handling", "event_info", "expansion", "extended_float", "fast_forwarding", "fax_number", "feet", "file_ref", "file_specification", "file_track", "file_url", "finish", "fixed", "fixed_indexing", "fixed_point", "fixed_rectangle", "float", "float_128bit", "folder", "folder_playlist", "format", "free_space", "frontmost", "full_screen", "gallons", "gapless", "genre", "grams", "graphic_text", "grouping", "hyphens", "iPod", "inches", "index", "integer", "international_text", "international_writing_code", "item", "kernel_process_id", "kilograms", "kilometers", "kind", "large", "library", "library_playlist", "list", "liters", "location", "location_reference", "long_description", "long_fixed", "long_fixed_point", "long_fixed_rectangle", "long_point", "long_rectangle", "lyrics", "mach_port", "machine", "machine_location", "medium", "meters", "miles", "minimized", "missing_value", "modifiable", "modification_date", "movie", "music_video", "mute", "name", "no", "none", "null", "numeric_strings", "off", "one", "ounces", "pages_across", "pages_down", "parameter_info", "parent", "pascal_string", "paused", "persistent_ID", "pixel_map_record", "played_count", "played_date", "player_position", "player_state", "playing", "playlist", "playlist_window", "podcast", "point", "position", "pounds", "preamp", "print_settings", "printer_features", "process_serial_number", "property", "property_info", "punctuation", "quarts", "radio_tuner", "radio_tuner_playlist", "rating", "record", "reference", "requested_print_time", "resizable", "rewinding", "rotation", "sample_rate", "script", "season_number", "selection", "shared", "shared_library", "shared_track", "short_float", "short_integer", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "small", "smart", "song_repeat", "songs", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "source", "special_kind", "square_feet", "square_kilometers", "square_meters", "square_miles", "square_yards", "standard", "start_", "starting_page", "stopped", "string", "styled_clipboard_text", "styled_text", "styled_unicode_text", "suite_info", "target_printer", "text_style_info", "time", "track", "track_count", "track_listing", "track_number", "type_class", "unicode_text", "unknown", "unplayed", "unsigned_integer", "update_tracks", "user_playlist", "utf16_text", "utf8_text", "version", "video_kind", "view", "visible", "visual", "visual_size", "visuals_enabled", "volume_adjustment", "whitespace", "window", "writing_code", "yards", "year", "yes", "zoomable", "zoomed"]
+irb(main):019:0> p app('iTunes').sources[1].user_playlists.name.get
+["Party Shuffle", "Purchased", "60\342\200\231s Music", "Classical", "Electronica", "Highest Rated Electronica", "Highest Rated Trance", "Kraftw***", "last six months", "Most medium played", "Movies", "Music", "Music Videos", "My Top Rated", "Recent Additions", "Recently Played", "Rock", "Top 100 Most Played", "TV Shows", "Unplayed Electronica", "Unplayed Rock", "Unplayed trance", "Zappa", "Zero Plays", "90s", "2001:ASO", "Acoustic songs", "B+SC", "Black Sabbath redux", "bottom heavy", "chab", "Chill", "Cle", "delme", "delme", "Devo fun", "dj swain", "Drum and Bass (allegedly)", "Duvalby Bros", "Firsts", "Folk", "GTA:faves", "GTA:hanley", "GTA:radio", "GTA:SA", "GTA:VC", "hacking", "IDM", "jcomp", "July Mix", "kick", "kick 2", "Leopard Sessions from WWDC06", "LimeWire", "Marni's mix", "math rock", "MDID--", "me", "melancholy", "music on the go", "New Fun", "nova Selection", "novelty", "numan redux", "Podcasts", "pop blip cchhchchcch", "punk", "radiohead++", "random one", "Random Playlist N", "recent rips", "red rock essential", "red rock west 2000", "rock and... and...", "rock mix one", "set list", "tension", "The Dresden Dolls - The Dresden Dolls", "The Verve", "tmp", "Tom Waits to cover", "Tom's Heartbreak MIx Vol. 1", "Tom's party mix one", "Tom's party mix two", "Tuesday March 15th 1:19PM", "tuner", "Valentine for Agent Ro", "W.A.N.", "Wednesday April 27th 1:45pm", "Wednesday May 5th 1:24pm", "xmas"]
+=> nil
+irb(main):020:0> 
+irb(main):021:0* 
+irb(main):022:0* 
+irb(main):023:0*  app('iTunes').sources[1].commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):024:0>  app('iTunes').sources[1].keywords
+=> ["April", "Audiobooks", "August", "December", "EPS_picture", "EQ", "EQ_enabled", "EQ_preset", "EQ_window", "February", "Friday", "GIF_picture", "JPEG_picture", "January", "July", "June", "MP3_CD", "March", "May", "Monday", "Movies", "Music", "November", "October", "PICT_picture", "Party_Shuffle", "Podcasts", "Purchased_Music", "RGB16_color", "RGB96_color", "RGB_color", "Saturday", "September", "Sunday", "TIFF_picture", "TV_Shows", "TV_show", "Thursday", "Tuesday", "URL_track", "Videos", "Wednesday", "address", "album", "album_artist", "album_listing", "albums", "alias", "all", "anything", "application", "application_bundle_id", "application_responses", "application_signature", "application_url", "artist", "artists", "artwork", "ask", "audio_CD", "audio_CD_playlist", "audio_CD_track", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "best", "bit_rate", "bookmark", "bookmarkable", "boolean", "bounding_rectangle", "bounds", "bpm", "browser_window", "c_string", "capacity", "case", "category", "cd_insert", "centimeters", "class_", "class_info", "closeable", "collapseable", "collapsed", "collating", "color_table", "comment", "compilation", "composer", "composers", "container", "copies", "cubic_centimeters", "cubic_feet", "cubic_inches", "cubic_meters", "cubic_yards", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "dash_style", "data", "database_ID", "date", "date_added", "decimal_struct", "degrees_Celsius", "degrees_Fahrenheit", "degrees_Kelvin", "description", "detailed", "device", "device_playlist", "device_track", "diacriticals", "disc_count", "disc_number", "displayed", "double_integer", "downloaded", "duration", "element_info", "enabled", "encoded_string", "encoder", "ending_page", "enumerator", "episode_ID", "episode_number", "error_handling", "event_info", "expansion", "extended_float", "fast_forwarding", "fax_number", "feet", "file_ref", "file_specification", "file_track", "file_url", "finish", "fixed", "fixed_indexing", "fixed_point", "fixed_rectangle", "float", "float_128bit", "folder", "folder_playlist", "format", "free_space", "frontmost", "full_screen", "gallons", "gapless", "genre", "grams", "graphic_text", "grouping", "hyphens", "iPod", "inches", "index", "integer", "international_text", "international_writing_code", "item", "kernel_process_id", "kilograms", "kilometers", "kind", "large", "library", "library_playlist", "list", "liters", "location", "location_reference", "long_description", "long_fixed", "long_fixed_point", "long_fixed_rectangle", "long_point", "long_rectangle", "lyrics", "mach_port", "machine", "machine_location", "medium", "meters", "miles", "minimized", "missing_value", "modifiable", "modification_date", "movie", "music_video", "mute", "name", "no", "none", "null", "numeric_strings", "off", "one", "ounces", "pages_across", "pages_down", "parameter_info", "parent", "pascal_string", "paused", "persistent_ID", "pixel_map_record", "played_count", "played_date", "player_position", "player_state", "playing", "playlist", "playlist_window", "podcast", "point", "position", "pounds", "preamp", "print_settings", "printer_features", "process_serial_number", "property", "property_info", "punctuation", "quarts", "radio_tuner", "radio_tuner_playlist", "rating", "record", "reference", "requested_print_time", "resizable", "rewinding", "rotation", "sample_rate", "script", "season_number", "selection", "shared", "shared_library", "shared_track", "short_float", "short_integer", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "small", "smart", "song_repeat", "songs", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "source", "special_kind", "square_feet", "square_kilometers", "square_meters", "square_miles", "square_yards", "standard", "start_", "starting_page", "stopped", "string", "styled_clipboard_text", "styled_text", "styled_unicode_text", "suite_info", "target_printer", "text_style_info", "time", "track", "track_count", "track_listing", "track_number", "type_class", "unicode_text", "unknown", "unplayed", "unsigned_integer", "update_tracks", "user_playlist", "utf16_text", "utf8_text", "version", "video_kind", "view", "visible", "visual", "visual_size", "visuals_enabled", "volume_adjustment", "whitespace", "window", "writing_code", "yards", "year", "yes", "zoomable", "zoomed"]
+irb(main):025:0>  app('iTunes').sources[1].commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):026:0> quit
+harmonika:~ swain$ cd
+harmonika:~ swain$ cd Library/
+harmonika:~/Library swain$ ls
+Acrobat User Data	Cookies			Keychains		Quicktime		Widgets
+Application Support	Documentation		Logs			Receipts		iMovie
+Assistants		Favorites		Mail			Recent Servers		iTunes
+Audio			FontCollections		Mail Downloads		Safari			palm
+Autosave Information	Fonts			Mozilla			Scripts			palm.tgz
+Caches			Icons			Music Man		Sounds
+Classic			Images			PreferencePanes		StickiesDatabase
+ColorPickers		Internet Plug-Ins	Preferences		StickiesDatabase.newer
+Colors			Keyboard Layouts	Printers		Syndication
+harmonika:~/Library swain$ cd iTunes/Scripts/
+harmonika:~/Library/iTunes/Scripts swain$ ls
+Export as HTML Table.scpt
+harmonika:~/Library/iTunes/Scripts swain$ chmod a+x ruby.rby 
+harmonika:~/Library/iTunes/Scripts swain$ file *
+Export as HTML Table.scpt: data
+ruby.rby:                  a /usr/local/bin/ruby script text executable
+harmonika:~/Library/iTunes/Scripts swain$ ./ruby.rby 
+harmonika:~/Library/iTunes/Scripts swain$ irb
+irb(main):001:0> app('Safari').activate
+NoMethodError: undefined method `app' for main:Object
+	from (irb):1
+irb(main):002:0> require "appscript"
+=> true
+irb(main):003:0> include Appscript
+=> Object
+irb(main):004:0> app('Safari').activate
+=> nil
+irb(main):005:0> app('Safari').open('http://reddit.com/')
+=> nil
+irb(main):006:0> app('Safari').do_Javascript("alert('hello sailor!')")
+RuntimeError: Unknown property, element or command: 'do_Javascript'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):6
+irb(main):007:0> app('Safari').do_javascript("alert('hello sailor!')")
+RuntimeError: Unknown property, element or command: 'do_javascript'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):7
+irb(main):008:0> app('Safari').commands
+=> ["activate", "close", "count", "delete", "do_JavaScript", "duplicate", "email_contents", "exists", "get", "launch", "make", "move", "open", "open_location", "print", "quit", "reopen", "run", "save", "set"]
+irb(main):009:0> app('Safari').do_JavaScript("alert('hello sailor!')")
+Appscript::CommandError: CommandError
+		OSERROR: -1715
+		MESSAGE: Some parameter wasn't understood.
+		COMMAND: app("/Applications/Safari.app").do_JavaScript("alert('hello sailor!')")
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):9
+irb(main):010:0> hello = "alert('Hello, sailor!');"
+=> "alert('Hello, sailor!');"
+irb(main):011:0> app('Safari').do_JavaScript(hello)
+Appscript::CommandError: CommandError
+		OSERROR: -1715
+		MESSAGE: Some parameter wasn't understood.
+		COMMAND: app("/Applications/Safari.app").do_JavaScript("alert('Hello, sailor!');")
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):11
+irb(main):012:0> app('Safari').quit
+=> nil
+irb(main):013:0> it = app('iTunes').get
+=> nil
+irb(main):014:0> it = app('iTunes')
+=> app("/Applications/iTunes.app")
+irb(main):015:0> it.commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):016:0> it.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):017:0> it.audio_CD_playlists
+=> app("/Applications/iTunes.app").audio_CD_playlists
+irb(main):018:0> it.audio_CD_playlists.length
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):18
+irb(main):019:0> it.audio_CD_playlists.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):020:0> it.audio_CD_playlists.commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):021:0> it.sources
+=> app("/Applications/iTunes.app").sources
+irb(main):022:0> it.sources.commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):023:0> it.sources.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):024:0> it.sources.commands
+=> ["activate", "add", "back_track", "close", "convert", "count", "delete", "download", "duplicate", "eject", "exists", "fast_forward", "get", "launch", "make", "move", "next_track", "open", "open_location", "pause", "play", "playpause", "previous_track", "print", "quit", "refresh", "reopen", "resume", "rewind", "run", "search", "set", "stop", "subscribe", "update", "updateAllPodcasts", "updatePodcast"]
+irb(main):025:0> srcs = it.sources
+=> app("/Applications/iTunes.app").sources
+irb(main):026:0> srcs.count
+Appscript::CommandError: CommandError
+		OSERROR: -10001
+		MESSAGE: Type error.
+		COMMAND: app("/Applications/iTunes.app").sources.count()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):26
+irb(main):027:0> srcs.elements.count
+NoMethodError: undefined method `count' for #<Array:0x530a70>
+	from (irb):27
+irb(main):028:0> srcs.elements.length
+=> 25
+irb(main):029:0> srcs.elements.parameters
+NoMethodError: undefined method `parameters' for #<Array:0x528fc8>
+	from (irb):29
+irb(main):030:0> srcs.elements.parameters.length
+NoMethodError: undefined method `parameters' for #<Array:0x5201c0>
+	from (irb):30
+irb(main):031:0> srcs.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):032:0> srccount = it.sources.length
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):32
+irb(main):033:0> srccount = it.sources.get
+=> [app("/Applications/iTunes.app").sources.ID(37), app("/Applications/iTunes.app").sources.ID(72034)]
+irb(main):034:0> srccount = it.sources.get.length
+=> 2
+irb(main):035:0> srccount = it.sources.get.length
+=> 3
+irb(main):036:0> srccount = it.sources.get
+=> [app("/Applications/iTunes.app").sources.ID(37), app("/Applications/iTunes.app").sources.ID(72034), app("/Applications/iTunes.app").sources.ID(72101)]
+irb(main):037:0> it.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):038:0> it.sources.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):039:0> it.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):040:0> it.audio_CD_playlists.get
+=> []
+irb(main):041:0> it.audio_CD_tracks.get
+=> []
+irb(main):042:0> it.audio_CD_tracks
+=> app("/Applications/iTunes.app").audio_CD_tracks
+irb(main):043:0> it.sources.get
+=> [app("/Applications/iTunes.app").sources.ID(37), app("/Applications/iTunes.app").sources.ID(72034), app("/Applications/iTunes.app").sources.ID(72101)]
+irb(main):044:0> it.sources.get(1)
+=> nil
+irb(main):045:0> it.sources.get(2
+irb(main):046:1> it.sources.get(3)
+irb(main):047:1> 
+irb(main):048:1* 
+irb(main):049:1* 
+irb(main):050:1* 
+irb(main):051:1* 
+irb(main):052:1* 
+irb(main):053:1* 
+irb(main):054:1* 
+irb(main):055:1* 
+irb(main):056:1* ;
+irb(main):057:1* it.sources.get(3)
+irb(main):058:1> it.sources.get(3)
+irb(main):059:1> it.sources.get
+irb(main):060:1> '
+irb(main):061:1' '
+irb(main):062:1> ^C
+irb(main):062:0> 
+irb(main):063:0* 
+irb(main):064:0* 
+irb(main):065:0* ^C
+irb(main):065:0> it.sources.get
+=> [app("/Applications/iTunes.app").sources.ID(37), app("/Applications/iTunes.app").sources.ID(72034), app("/Applications/iTunes.app").sources.ID(72101)]
+irb(main):066:0> it.sources.get(2)
+=> nil
+irb(main):067:0> it.sources.get(3)
+=> nil
+irb(main):068:0> it.sources.get[1]
+=> app("/Applications/iTunes.app").sources.ID(72034)
+irb(main):069:0> it.sources.get[1].audio_CD_tracks
+=> app("/Applications/iTunes.app").sources.ID(72034).audio_CD_tracks
+irb(main):070:0> it.sources.get[1].audio_CD_tracks.get
+=> []
+irb(main):071:0> it.sources.get[3].audio_CD_tracks.get
+NoMethodError: undefined method `audio_CD_tracks' for nil:NilClass
+	from (irb):71
+	from :0
+irb(main):072:0> it.sources.get[2].audio_CD_tracks.get
+=> []
+irb(main):073:0> it.sources.get[0].audio_CD_tracks.get
+=> []
+irb(main):074:0> it.sources.get[1].audio_CD_tracks.get
+=> []
+irb(main):075:0> it.sources.get[1].audio_CD_tracks
+=> app("/Applications/iTunes.app").sources.ID(72034).audio_CD_tracks
+irb(main):076:0> it.sources.get[1].audio_CD_tracks.get
+=> []
+irb(main):077:0> it.sources.get[1].audio_CD_tracks.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):078:0> it.sources.get[1].audio_CD_tracks
+=> app("/Applications/iTunes.app").sources.ID(72034).audio_CD_tracks
+irb(main):079:0> it.sources[1..2]
+=> app("/Applications/iTunes.app").sources[1..2]
+irb(main):080:0> sources = it.sources.get
+=> [app("/Applications/iTunes.app").sources.ID(37), app("/Applications/iTunes.app").sources.ID(72034), app("/Applications/iTunes.app").sources.ID(72101)]
+irb(main):081:0> sources.length
+=> 3
+irb(main):082:0> sources[1]
+=> app("/Applications/iTunes.app").sources.ID(72034)
+irb(main):083:0> sources[1].audio_CD_playlist
+RuntimeError: Unknown property, element or command: 'audio_CD_playlist'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):83
+	from :0
+irb(main):084:0> sources[2].audio_CD_playlist
+RuntimeError: Unknown property, element or command: 'audio_CD_playlist'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):84
+	from :0
+irb(main):085:0> sources[3].audio_CD_playlist
+NoMethodError: undefined method `audio_CD_playlist' for nil:NilClass
+	from (irb):85
+	from :0
+irb(main):086:0> sources[0].audio_CD_playlist
+RuntimeError: Unknown property, element or command: 'audio_CD_playlist'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):86
+	from :0
+irb(main):087:0> sources[1].elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):088:0> sources[1].audio_CD_playlists.get
+=> []
+irb(main):089:0> sources[3].audio_CD_playlists.get
+NoMethodError: undefined method `audio_CD_playlists' for nil:NilClass
+	from (irb):89
+	from :0
+irb(main):090:0> sources[0].audio_CD_playlists.get
+=> []
+irb(main):091:0> sources[2].audio_CD_playlists.get
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)]
+irb(main):092:0> theCD = sources[2].audio_CD_playlists.get
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)]
+irb(main):093:0> theCD.elements
+NoMethodError: undefined method `elements' for #<Array:0x318f1c>
+	from (irb):93
+	from :0
+irb(main):094:0> theCD = sources[2].audio_CD_playlists.get
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)]
+irb(main):095:0> theCD.elements
+NoMethodError: undefined method `elements' for #<Array:0x31054c>
+	from (irb):95
+	from :0
+irb(main):096:0> theCD.commands
+NoMethodError: undefined method `commands' for #<Array:0x31054c>
+	from (irb):96
+	from :0
+irb(main):097:0> theCD.artist.get
+NoMethodError: undefined method `artist' for #<Array:0x31054c>
+	from (irb):97
+	from :0
+irb(main):098:0> theCD = sources[2].audio_CD_playlists
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists
+irb(main):099:0> theCD.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):100:0> theCD.artist
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.artist
+irb(main):101:0> theCD.artist.get
+=> [""]
+irb(main):102:0> theCD.artist = "testing"
+RuntimeError: Unknown property, element or command: 'artist='
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):102
+	from :0
+irb(main):103:0> theCD.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):104:0> theCD.album = "foo"
+RuntimeError: Unknown property, element or command: 'album='
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):104
+	from :0
+irb(main):105:0> theCD.album.set('Foo')
+Appscript::CommandError: CommandError
+		OSERROR: -1731
+		MESSAGE: Unknown object type.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album.set("Foo")
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):105
+	from :0
+irb(main):106:0> theCD.album.set(:name => 'Foo')
+Appscript::CommandError: CommandError
+		OSERROR: -1731
+		MESSAGE: Unknown object type.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album.name.set("Foo")
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):106
+	from :0
+irb(main):107:0> theCD.album.get
+Appscript::CommandError: CommandError
+		OSERROR: -1728
+		MESSAGE: Can't get reference.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album.get()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):107
+	from :0
+irb(main):108:0> theCD.album
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album
+irb(main):109:0> theCD.album.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):110:0> theCD.album.name.get
+Appscript::CommandError: CommandError
+		OSERROR: -1728
+		MESSAGE: Can't get reference.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album.name.get()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):110
+	from :0
+irb(main):111:0> theCD.album.name
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.album.name
+irb(main):112:0> theCD.album.name.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):113:0> theCD.album.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):114:0> theCD.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):115:0> theCD.album.foo.bar.baz.bin.properties
+RuntimeError: Unknown property, element or command: 'foo'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):115
+	from :0
+irb(main):116:0> theCD.album.name.album.name.name.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):117:0> theCD.album.set(:name => 'Foo')
+ArgumentError: Unknown keyword parameter: :name
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:387:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:384:in `each'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:384:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):117
+	from :0
+irb(main):118:0> theCD.set(album.name, :to => 'Foo')
+NameError: undefined local variable or method `album' for main:Object
+	from (irb):118
+	from :0
+irb(main):119:0> theCD.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):120:0> sources[2].set(audio_CD_playlists.audio_CD_tracks[1].album, :to => 'Foo')
+NameError: undefined local variable or method `audio_CD_playlists' for main:Object
+	from (irb):120
+	from :0
+irb(main):121:0> sources[2].set(audio_CD_playlists[1].audio_CD_tracks[1].album, :to => 'Foo')
+NameError: undefined local variable or method `audio_CD_playlists' for main:Object
+	from (irb):121
+	from :0
+irb(main):122:0> theCD.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists"
+irb(main):123:0> theCD.elements
+=> ["EQ_presets", "EQ_windows", "URL_tracks", "application", "artworks", "audio_CD_playlists", "audio_CD_tracks", "browser_windows", "device_playlists", "device_tracks", "encoders", "file_tracks", "folder_playlists", "items", "library_playlists", "playlist_windows", "playlists", "print_settings", "radio_tuner_playlists", "shared_tracks", "sources", "tracks", "user_playlists", "visuals", "windows"]
+irb(main):124:0> theCD.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):125:0> theCD.name.get
+=> ["Audio CD"]
+irb(main):126:0> theCD.audio_CD_playlists.get
+=> [[]]
+irb(main):127:0> theCD.audio_CD_playlists[1]
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.audio_CD_playlists[1]
+irb(main):128:0> theCD.audio_CD_playlists[1].get
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)
+irb(main):129:0> cdpl = theCD.audio_CD_playlists[1].get
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)
+irb(main):130:0> cdpl.name.get
+=> "Audio CD"
+irb(main):131:0> cdpl.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102)"
+irb(main):132:0> cdpl.properties
+=> ["EQ", "EQ_enabled", "address", "album", "album_artist", "artist", "band_1", "band_10", "band_2", "band_3", "band_4", "band_5", "band_6", "band_7", "band_8", "band_9", "bit_rate", "bookmark", "bookmarkable", "bounds", "bpm", "capacity", "category", "class_", "closeable", "collapseable", "collapsed", "collating", "comment", "compilation", "composer", "container", "copies", "current_EQ_preset", "current_encoder", "current_playlist", "current_stream_URL", "current_stream_title", "current_track", "current_visual", "data", "database_ID", "date_added", "description", "disc_count", "disc_number", "downloaded", "duration", "enabled", "ending_page", "episode_ID", "episode_number", "error_handling", "fax_number", "finish", "fixed_indexing", "format", "free_space", "frontmost", "full_screen", "gapless", "genre", "grouping", "id_", "index", "kind", "location", "long_description", "lyrics", "minimized", "modifiable", "modification_date", "mute", "name", "pages_across", "pages_down", "parent", "persistent_ID", "played_count", "played_date", "player_position", "player_state", "podcast", "position", "preamp", "printer_features", "rating", "requested_print_time", "resizable", "sample_rate", "season_number", "selection", "shared", "show", "shufflable", "shuffle", "size", "skipped_count", "skipped_date", "smart", "song_repeat", "sort_album", "sort_album_artist", "sort_artist", "sort_composer", "sort_name", "sort_show", "sound_volume", "special_kind", "start_", "starting_page", "target_printer", "time", "track_count", "track_number", "unplayed", "update_tracks", "version", "video_kind", "view", "visible", "visual_size", "visuals_enabled", "volume_adjustment", "year", "zoomable", "zoomed"]
+irb(main):133:0> cdpl = theCD.audio_CD_playlists[2].get
+=> nil
+irb(main):134:0> cdpl = theCD.audio_CD_playlists[0].get
+=> nil
+irb(main):135:0> cdpl = theCD.audio_CD_playlists[1].get
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102)
+irb(main):136:0> theCD.tracks
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.tracks
+irb(main):137:0> theCD.tracks.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.tracks"
+irb(main):138:0> theCD.tracks.count
+Appscript::CommandError: CommandError
+		OSERROR: -10001
+		MESSAGE: Type error.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.tracks.count()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):138
+	from :0
+irb(main):139:0> theCD.tracks.length
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):139
+	from :0
+irb(main):140:0> theCD.tracks..count(:each => :item)
+RuntimeError: Unknown property, element or command: 'number'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):140
+	from :0
+irb(main):141:0> pp('Finder').folders[1].name.get
+NoMethodError: undefined method `pp' for main:Object
+	from (irb):141
+	from :0
+irb(main):142:0> App('Finder').folders[1].name.get
+NoMethodError: undefined method `App' for main:Object
+	from (irb):142
+	from :0
+irb(main):143:0> app('Finder').folders[1].name.get
+=> "Radical Edward"
+irb(main):144:0> theCD.tracks..count(:each => :item)
+NoMethodError: undefined method `count' for main:Object
+	from (irb):144
+	from (null):0
+irb(main):145:0> theCD.tracks.count(:each => :item)
+=> 1
+irb(main):146:0> theCD.audio_CD_playlist.count(:each => :item)
+RuntimeError: Unknown property, element or command: 'audio_CD_playlist'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):146
+	from (null):0
+irb(main):147:0> theCD.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists"
+irb(main):148:0> theCD.count(:each => :track)
+=> 0
+irb(main):149:0> theCD.audio_CD_playlist.count(:each => :track)
+RuntimeError: Unknown property, element or command: 'audio_CD_playlist'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):149
+	from :0
+irb(main):150:0> cdpl.count(:each => :track)
+=> 11
+irb(main):151:0> puts cdpl.elements
+EQ_presets
+EQ_windows
+URL_tracks
+application
+artworks
+audio_CD_playlists
+audio_CD_tracks
+browser_windows
+device_playlists
+device_tracks
+encoders
+file_tracks
+folder_playlists
+items
+library_playlists
+playlist_windows
+playlists
+print_settings
+radio_tuner_playlists
+shared_tracks
+sources
+tracks
+user_playlists
+visuals
+windows
+=> nil
+irb(main):152:0> puts cdpl.properties
+EQ
+EQ_enabled
+address
+album
+album_artist
+artist
+band_1
+band_10
+band_2
+band_3
+band_4
+band_5
+band_6
+band_7
+band_8
+band_9
+bit_rate
+bookmark
+bookmarkable
+bounds
+bpm
+capacity
+category
+class_
+closeable
+collapseable
+collapsed
+collating
+comment
+compilation
+composer
+container
+copies
+current_EQ_preset
+current_encoder
+current_playlist
+current_stream_URL
+current_stream_title
+current_track
+current_visual
+data
+database_ID
+date_added
+description
+disc_count
+disc_number
+downloaded
+duration
+enabled
+ending_page
+episode_ID
+episode_number
+error_handling
+fax_number
+finish
+fixed_indexing
+format
+free_space
+frontmost
+full_screen
+gapless
+genre
+grouping
+id_
+index
+kind
+location
+long_description
+lyrics
+minimized
+modifiable
+modification_date
+mute
+name
+pages_across
+pages_down
+parent
+persistent_ID
+played_count
+played_date
+player_position
+player_state
+podcast
+position
+preamp
+printer_features
+rating
+requested_print_time
+resizable
+sample_rate
+season_number
+selection
+shared
+show
+shufflable
+shuffle
+size
+skipped_count
+skipped_date
+smart
+song_repeat
+sort_album
+sort_album_artist
+sort_artist
+sort_composer
+sort_name
+sort_show
+sound_volume
+special_kind
+start_
+starting_page
+target_printer
+time
+track_count
+track_number
+unplayed
+update_tracks
+version
+video_kind
+view
+visible
+visual_size
+visuals_enabled
+volume_adjustment
+year
+zoomable
+zoomed
+=> nil
+irb(main):153:0> cdpl.set(:name => "wainstead all night")
+ArgumentError: Unknown keyword parameter: :name
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:387:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:384:in `each'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:384:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):153
+	from :0
+irb(main):154:0> cdpl.name(:set => "wainstead all night")
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).name
+irb(main):155:0> cdpl.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102)"
+irb(main):156:0> it.current_track
+=> app("/Applications/iTunes.app").current_track
+irb(main):157:0> puts it.current_track
+app("/Applications/iTunes.app").current_track
+=> nil
+irb(main):158:0> puts it.current_track.name.get
+Until The Morning
+=> nil
+irb(main):159:0> get it.sources['Audio CD']
+NoMethodError: undefined method `get' for main:Object
+	from (irb):159
+	from :0
+irb(main):160:0>  it.sources['Audio CD'].get
+=> app("/Applications/iTunes.app").sources.ID(72101)
+irb(main):161:0> theCD.tracks.get
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):162:0> puts theCD.tracks.get
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125)
+app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)
+=> nil
+irb(main):163:0> puts theCD.track[1].get
+RuntimeError: Unknown property, element or command: 'track'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):163
+	from :0
+irb(main):164:0> puts theCD.tracks[1].get
+nil
+=> nil
+irb(main):165:0> theCD.tracks[1]
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.tracks[1]
+irb(main):166:0> theCD.tracks[1].name.get
+=> "iTunes"
+irb(main):167:0> theCD.tracks[2].name.get
+=> "iTunes"
+irb(main):168:0> theCD.tracks[22].name.get
+=> "iTunes"
+irb(main):169:0> thetracks = theCD.tracks
+=> app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.tracks
+irb(main):170:0> puts thetracks.length
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):170
+	from :0
+irb(main):171:0>  thetracks.inspect
+=> "app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.tracks"
+irb(main):172:0> thetracks.length.get
+RuntimeError: Unknown property, element or command: 'length'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):172
+	from :0
+irb(main):173:0> thetracks.cont.get
+RuntimeError: Unknown property, element or command: 'cont'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):173
+	from :0
+irb(main):174:0> thetracks.count.get
+Appscript::CommandError: CommandError
+		OSERROR: -10001
+		MESSAGE: Type error.
+		COMMAND: app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.tracks.count()
+
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:449:in `_send_command'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:529:in `method_missing'
+	from (irb):174
+	from :0
+irb(main):175:0> theCD.tracks.get
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):176:0> 
+=> [nil]
+irb(main):177:0> theCD.tracks.each { |t| puts t.name.get }
+RuntimeError: Unknown property, element or command: 'each'
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:535:in `method_missing'
+	from (irb):177
+	from :0
+irb(main):178:0> trklist = theCD.tracks.get
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):179:0> trks.each { |t| puts t.name.get }
+NoMethodError: undefined method `name' for #<Array:0x313b84>
+	from (irb):179
+	from (irb):179:in `each'
+	from (irb):179
+	from :0
+irb(main):180:0> trklist = theCD.tracks.get
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):181:0> trks.each { |t| puts t[1].name.get }
+Track 02
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):182:0> trks.each { |t| puts t[1].name.get }
+Track 02
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):183:0> trks.each { |t| puts t[0].name.get }
+Track 01
+=> [[app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]]
+irb(main):184:0> trks.length.get
+NoMethodError: undefined method `get' for 1:Fixnum
+	from (irb):184
+	from :0
+irb(main):185:0> trks.count.get
+NoMethodError: undefined method `count' for #<Array:0x3141d8>
+	from (irb):185
+	from :0
+irb(main):186:0> trks[0].inspect
+=> "[app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app(\"/Applications/iTunes.app\").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]"
+irb(main):187:0> trks[0]
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]
+irb(main):188:0> trks = trklist[0]
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]
+irb(main):189:0> trks.each { |t| puts t[0].name.get }
+NoMethodError: undefined method `by_index' for #<AEMReference::ElementByID:0x1cdb6c>
+	from /usr/local/lib/ruby/site_ruby/1.8/appscript.rb:550:in `[]'
+	from (irb):189
+	from (irb):189:in `each'
+	from (irb):189
+	from :0
+irb(main):190:0> 
+Track 01
+Track 02
+Track 03
+Track 04
+Track 05
+Track 06
+Track 07
+Track 08
+Track 09
+Track 10
+Track 11
+=> [app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72107), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72109), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72111), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72113), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72115), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72117), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72119), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72121), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72123), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72125), app("/Applications/iTunes.app").sources.ID(72101).audio_CD_playlists.ID(72102).audio_CD_tracks.ID(72127)]
+irb(main):191:0> require "mysql"
+LoadError: no such file to load -- mysql
+	from (irb):191:in `require'
+	from (irb):191
+	from :0
+irb(main):192:0> require "rubygems"
+=> true
+irb(main):193:0> require "mysql"
+LoadError: no such file to load -- mysql
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from (irb):193
+	from /usr/local/lib/ruby/1.8/time.rb:598
+irb(main):194:0> require "mysql
+irb(main):195:0" :
+irb(main):196:0" "
+LoadError: no such file to load -- mysql
+:
+
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from (irb):196
+	from /usr/local/lib/ruby/1.8/time.rb:598
+irb(main):197:0> require "mysql"
+LoadError: no such file to load -- mysql
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from (irb):197
+	from /usr/local/lib/ruby/1.8/time.rb:598
+irb(main):198:0> require "mysql"
+=> true
+irb(main):199:0> 
