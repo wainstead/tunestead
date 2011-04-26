@@ -1,0 +1,27 @@
+after burning the disc, pull up a web page; click "new disc."
+Fill in track info: artist/show, date, burn date...
+click 'save'
+get disc ID back
+write on disc
+
+---
+
+in iTunes:
+
+insert disc
+select dropdown: fill in track names
+prompt for disc ID
+populate fields
+
+the latter can be done by the main scripts dropdown
+
+create/read/update/delete? hmm
+show database controller?
+
+make a show database/controller... if we go all out, we use all fields in itunes. could be overkill though.
+
+objects: discs. is there anything else?
+
+a disc and one or more tracks... this object model is already
+mapped out, silly
+
