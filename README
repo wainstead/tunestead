@@ -1,3 +1,11 @@
+*This project is no longer actively developed.*
+
+This project depended on rb-appscript, which is no longer developed or
+supported; see http://appscript.sourceforge.net/status.html for more
+details.
+
+Original README contents:
+
 To use this application, you need to have rb-appscript installed:
 
 http://appscript.sourceforge.net/rb-appscript/index.html
